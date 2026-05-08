@@ -2080,7 +2080,7 @@ function showAreaBuildDetail(area) {
 // ============================================================
 
 // ── GANTI URL INI setelah deploy Apps Script ─────────────────
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/PASTE_YOUR_DEPLOYMENT_ID_HERE/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx3EHP_AHLldmB63XdJySjJMvDcEBOGAPyFLqmiRdukFxIakCvtYAQXsDmnpWVYgCkH0w/exec';
 
 // ── Status UI helpers ────────────────────────────────────────
 function setSyncStatus(msg, isError = false) {
