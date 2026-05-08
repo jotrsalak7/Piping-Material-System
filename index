@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231B365D'/%3E%3C!-- horizontal pipe --%3E%3Crect x='2' y='13' width='28' height='6' rx='3' fill='%23c9a84c'/%3E%3C!-- left cap --%3E%3Crect x='2' y='10' width='5' height='12' rx='2' fill='%23a07830'/%3E%3C!-- right cap --%3E%3Crect x='25' y='10' width='5' height='12' rx='2' fill='%23a07830'/%3E%3C!-- branch stub up --%3E%3Crect x='13' y='4' width='6' height='10' rx='2' fill='%23c9a84c'/%3E%3Crect x='11' y='2' width='10' height='5' rx='2' fill='%23a07830'/%3E%3C/svg%3E">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Piping Material Intelligence — Salak Unit 7</title>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -775,15 +776,46 @@ tbody tr:hover { background: rgba(27,54,93,0.02); }
   <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="sidebar-brand">
-      <h1>Material Intelligence</h1>
-      <div class="subtitle">Salak Unit 7 — Piping</div>
+     div class="sidebar-brand">
+  <!-- Logo bar: dua logo JO side-by-side -->
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.12);">
+    <!-- TIMAS logo (SVG inline) -->
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;">
+      <svg viewBox="0 0 56 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:56px;height:24px;">
+        <!-- Hexagon mark -->
+        <polygon points="4,12 8,5 14,5 18,12 14,19 8,19" fill="#c9a84c" opacity="0.9"/>
+        <text x="5.5" y="15.5" font-family="Arial" font-size="7" font-weight="bold" fill="#1B365D">T</text>
+        <!-- Wordmark -->
+        <text x="21" y="9" font-family="Arial" font-size="5.5" font-weight="bold" fill="#c9a84c" letter-spacing="0.5">TIMAS</text>
+        <text x="21" y="17" font-family="Arial" font-size="4" fill="rgba(255,255,255,0.7)" letter-spacing="0.2">SUPLINDO</text>
+      </svg>
     </div>
-    <nav class="sidebar-nav">
-      <div class="nav-section-label">Overview</div>
-      <div class="nav-item active" data-page="overview">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-        Dashboard
-      </div>
+
+    <!-- Divider -->
+    <div style="width:1px;height:32px;background:rgba(255,255,255,0.15);flex-shrink:0;"></div>
+
+    <!-- REKIND logo (SVG inline) -->
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;">
+      <svg viewBox="0 0 56 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:56px;height:24px;">
+        <!-- R-mark gear shape -->
+        <circle cx="11" cy="12" r="7" fill="none" stroke="#c9a84c" stroke-width="1.5" opacity="0.9"/>
+        <circle cx="11" cy="12" r="3" fill="#c9a84c" opacity="0.9"/>
+        <text x="8" y="15" font-family="Arial" font-size="7" font-weight="bold" fill="#1B365D">R</text>
+        <!-- Wordmark -->
+        <text x="21" y="9" font-family="Arial" font-size="5.5" font-weight="bold" fill="#c9a84c" letter-spacing="0.3">REKIND</text>
+        <text x="21" y="17" font-family="Arial" font-size="3.8" fill="rgba(255,255,255,0.7)" letter-spacing="0.1">REKAYASA IND.</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- JO Badge -->
+  <div style="text-align:center;margin-bottom:8px;">
+    <span style="font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.45);font-family:var(--sans);">Joint Operation</span>
+  </div>
+
+  <h1>Material Intelligence</h1>
+  <div class="subtitle">Salak Unit 7 — Piping</div>
+</div>
 
       <div class="nav-section-label">Analysis</div>
       <div class="nav-item" data-page="buildability">
@@ -828,6 +860,45 @@ tbody tr:hover { background: rgba(27,54,93,0.02); }
     <div class="topbar">
       <div class="topbar-title" id="pageTitle">Dashboard</div>
       <div class="topbar-actions">
+      
+<style>
+  .sync-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    background: var(--ink);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 12px;
+    font-family: var(--sans);
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+  .sync-btn:hover { background: var(--ink-light); }
+  .sync-btn:disabled { opacity: 0.5; cursor: wait; }
+  .sync-btn svg { transition: transform 0.6s; }
+  .sync-btn.syncing svg { animation: spin 1s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .sync-status {
+    font-size: 11px;
+    color: var(--olive);
+    white-space: nowrap;
+  }
+</style>
+
+<!-- Button element — letakkan SEBELUM .search-box di dalam .topbar-actions -->
+<button class="sync-btn" id="syncBtn" onclick="syncFromSheets()">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/>
+    <path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/>
+  </svg>
+  Sync GSheets
+</button>
+<span class="sync-status" id="syncStatus"></span>
+
         <div class="search-box">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
           <input type="text" id="globalSearch" placeholder="Search ident, part, PO..." oninput="handleSearch()">
@@ -2003,6 +2074,84 @@ function showAreaBuildDetail(area) {
   `;
   document.getElementById('modalOverlay').classList.add('active');
 }
+// ============================================================
+//  GOOGLE SHEETS SYNC — tambahkan ke dalam <script> di HTML
+//  (di bawah deklarasi RAW_DATA, sebelum baris terakhir </script>)
+// ============================================================
+
+// ── GANTI URL INI setelah deploy Apps Script ─────────────────
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/PASTE_YOUR_DEPLOYMENT_ID_HERE/exec';
+
+// ── Status UI helpers ────────────────────────────────────────
+function setSyncStatus(msg, isError = false) {
+  const el = document.getElementById('syncStatus');
+  if (!el) return;
+  el.textContent = msg;
+  el.style.color = isError ? '#b33a3a' : '#6b6a5e';
+}
+
+// ── Main sync function (dipanggil oleh tombol Sync) ──────────
+async function syncFromSheets() {
+  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.includes('PASTE_YOUR')) {
+    setSyncStatus('⚠ Set APPS_SCRIPT_URL terlebih dahulu', true);
+    return;
+  }
+
+  const btn = document.getElementById('syncBtn');
+  if (btn) { btn.disabled = true; btn.classList.add('syncing'); }
+  setSyncStatus('Mengambil data...');
+
+  try {
+    const res  = await fetch(APPS_SCRIPT_URL, { method: 'GET', redirect: 'follow' });
+    const json = await res.json();
+
+    if (!json.ok) throw new Error(json.error || 'Response tidak OK');
+
+    RAW_DATA = json.data;               // ganti data global
+    allData  = parseData();             // re-parse
+    applyFilters();                     // refresh tampilan
+
+    const now = new Date().toLocaleTimeString('id-ID', { hour:'2-digit', minute:'2-digit' });
+    setSyncStatus(`✓ ${json.totalRows} rows — ${now}`);
+
+  } catch (err) {
+    console.error('Sync error:', err);
+    setSyncStatus(`✗ ${err.message}`, true);
+  } finally {
+    if (btn) { btn.disabled = false; btn.classList.remove('syncing'); }
+  }
+}
+
+// ── Update satu field kembali ke Google Sheets ───────────────
+async function pushFieldUpdate(identCode, field, value) {
+  if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL.includes('PASTE_YOUR')) return;
+
+  const payload = JSON.stringify({ action: 'updateField', identCode, field, value });
+  // encode ke base64 agar tidak ada masalah CORS preflight
+  const encoded = btoa(unescape(encodeURIComponent(payload)));
+
+  try {
+    const res  = await fetch(APPS_SCRIPT_URL, {
+      method:   'POST',
+      redirect: 'follow',
+      headers:  { 'Content-Type': 'text/plain' },
+      body:     encoded,
+    });
+    const json = await res.json();
+    if (!json.ok) console.warn('Push failed:', json.error);
+    return json;
+  } catch (err) {
+    console.error('Push error:', err);
+  }
+}
+
+// ── Auto-sync saat halaman pertama kali dibuka ────────────────
+// (comment-out baris berikut jika tidak ingin auto-fetch)
+window.addEventListener('DOMContentLoaded', () => {
+  if (APPS_SCRIPT_URL && !APPS_SCRIPT_URL.includes('PASTE_YOUR')) {
+    setTimeout(syncFromSheets, 800); // delay 0.8 detik agar UI siap
+  }
+});
 </script>
 
 </body>
